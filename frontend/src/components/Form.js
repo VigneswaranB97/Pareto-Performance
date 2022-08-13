@@ -7,7 +7,8 @@ import {
   TextField,
 } from "@mui/material";
 
-const Form = () => {
+const Form = (props) => {
+  const attributes = props?.attributesSet;
   return (
     <form
       action=""
@@ -24,9 +25,12 @@ const Form = () => {
             label="Attributes"
             // onChange={handleChange}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {attributes &&
+              (() => {
+                attributes.foreach((attribute) => {
+                  <MenuItem value={attribute}>{attribute}</MenuItem>;
+                });
+              })()}
           </Select>
         </FormControl>
       </div>

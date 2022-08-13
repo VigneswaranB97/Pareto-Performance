@@ -36,16 +36,30 @@ const FormArray = () => {
     setNumOfForms(forms);
   };
 
+  const attributesSet = new Set();
+
   const processJson = (val) => {
     console.log(val);
     try {
       JSON.parse(val);
-      setCompanyData(val);
       setAlert({ msg: "JSON imported successfully!!", type: "success" });
+      setCompanyData(val);
     } catch (e) {
-      console.log("invalid");
+      console.log("invalid", e);
       setAlert({ msg: "Please import valid JSON", type: "danger" });
     }
+
+    console.log("company data", companyData);
+    console.log(val);
+    const suppliers = val["suppliers"];
+    console.log("suppliers", suppliers);
+    suppliers.foreach((supplier) => {
+      Object.keys(supplier).forEach((supplierKey) => {
+        if (!attributesSet.has(supplierKey)) {
+          attributesSet.add(supplierKey);
+        }
+      });
+    });
   };
 
   return (
@@ -54,7 +68,7 @@ const FormArray = () => {
         <p
           className={
             alert.type === "success"
-              ? "p-2 block mx-auto mt-0 mb-3 w-3/4 bg-green-500/80 border rounded text-white"
+              ? "p-2 block mx-auto mt-0 mb-3 w-3/4 bg-green-600/90 border rounded text-white"
               : "p-2 block mx-auto mt-0 mb-3 w-3/4 bg-red-500/80 border rounded text-white"
           }
         >
@@ -95,7 +109,7 @@ const FormArray = () => {
                 for (let i = 0; i < numOfForms; i++) {
                   options.push(
                     <Fragment key={i + 1}>
-                      <Form /> <br />
+                      <Form attributes={attributesSet} /> <br />
                     </Fragment>
                   );
                 }
