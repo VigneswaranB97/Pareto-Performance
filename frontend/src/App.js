@@ -4,11 +4,11 @@ import {
   Route,
   useRoutes,
 } from "react-router-dom";
-import Form from "./components/Form";
+import FormArray from "./components/FormArray";
 import Layout from "./components/Layout";
 
 const App = () => {
-  let routes = useRoutes([{ path: "/", element: <Form /> }]);
+  let routes = useRoutes([{ path: "/", element: <FormArray /> }]);
   return routes;
 };
 
