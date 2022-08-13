@@ -13,4 +13,8 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', monospace;
         letter-spacing: .6px;
     }
+
+    button:hover {
+        cursor: pointer;
+    }
 `;
