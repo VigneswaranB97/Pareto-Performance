@@ -1,3 +1,4 @@
+import copy
 import json
 from itertools import chain, combinations
 import time
@@ -12,15 +13,46 @@ logging.basicConfig(filename='all_logs.log', format='%(asctime)s %(message)s', l
 def all_subsets(ss):
     return chain(*map(lambda x: combinations(ss, x), range(2, len(ss)+1)))
 
-def get_overall_score(json_data_path, filters, attributes):
-    with open(json_data_path, 'r') as f:
-        supplier_data = json.load(f)
-
+def get_overall_score(supplier_data, filters, attributes):
+    message = ""
+    before_filter = copy.deepcopy(supplier_data)
     for f in filters:
-        if f != "Service":
-            supplier_data = [i for i in supplier_data if i[f] == filters[f]]
+        if filters[f]["criteria"] == ">=":
+            current_filter = [i for i in supplier_data if filters[f]["value"] >= i[f]]
+            if len(current_filter) == 0:
+                message += "No Supplier found with value {} for {}, So Ignoring {}! ".format(filters[f]["value"], f, f)
+            else:
+                supplier_data = current_filter
+        elif filters[f]["criteria"] == "<=":
+            current_filter = [i for i in supplier_data if i[f] <= filters[f]["value"]]
+            if len(current_filter) == 0:
+                message += "No Supplier found with value {} for {}, So Ignoring {}! ".format(filters[f]["value"], f, f)
+            else:
+                supplier_data = current_filter
+        elif filters[f]["criteria"] == ">":
+            current_filter = [i for i in supplier_data if i[f] > filters[f]["value"]]
+            if len(current_filter) == 0:
+                message += "No Supplier found with value {} for {}, So Ignoring {}! ".format(filters[f]["value"], f, f)
+            else:
+                supplier_data = current_filter
+        elif filters[f]["criteria"] == "<":
+            current_filter = [i for i in supplier_data if i[f] < filters[f]["value"]]
+            if len(current_filter) == 0:
+                message += "No Supplier found with value {} for {}, So Ignoring {}! ".format(filters[f]["value"], f, f)
+            else:
+                supplier_data = current_filter
+        else:
+            current_filter = [i for i in supplier_data if i[f] == filters[f]["value"]]
+            if len(current_filter) == 0:
+                message += "No Supplier found with value {} for {}, So Ignoring {}! ".format(filters[f]["value"], f, f)
+            else:
+                supplier_data = current_filter
 
+    message += "{} Suppliers Found after filtration! ".format(len(supplier_data))
     overall_scores = {}
+    if not supplier_data:
+        supplier_data = copy.deepcopy(before_filter)
+
     for idx, supplier in enumerate(supplier_data):
         supplier['score'] = 0
         supplier['id'] = "supplier_{}".format(idx)
@@ -52,22 +84,22 @@ def get_overall_score(json_data_path, filters, attributes):
     logging.info(f"moo Completed in {int(moo_end - moo_start)} seconds")
 
     lp_start = time.time()
-    # Get Scores using Linear Programming
-    logging.info(f"Running LP logic")
-    for key, value in attributes.items():
-        logging.info(f"Running {key} attribute for LP logic")
-        suppliers = []
-        all_constants = {}
-        for i in supplier_data:
-            suppliers.append(i["id"])
-            all_constants[i["id"]] = int(i[key])
-
-        result = get_linear_programming_scores(suppliers, all_constants, value["Objective"], value["tends_to_value"])
-        for v, s in result.items():
-            overall_scores[int(v.split("_")[1])] += s * attributes[key]["Weightage"]
-
-    lp_end = time.time()
-    logging.info(f"LP Completed in {int(lp_end - lp_start)} seconds")
+    # # Get Scores using Linear Programming
+    # logging.info(f"Running LP logic")
+    # for key, value in attributes.items():
+    #     logging.info(f"Running {key} attribute for LP logic")
+    #     suppliers = []
+    #     all_constants = {}
+    #     for i in supplier_data:
+    #         suppliers.append(i["id"])
+    #         all_constants[i["id"]] = int(i[key])
+    #
+    #     result = get_linear_programming_scores(suppliers, all_constants, value["Objective"], value["tends_to_value"])
+    #     for v, s in result.items():
+    #         overall_scores[int(v.split("_")[1])] += s * attributes[key]["Weightage"]
+    #
+    # lp_end = time.time()
+    # logging.info(f"LP Completed in {int(lp_end - lp_start)} seconds")
 
     sorted_suppliers = sorted(list(overall_scores.items()), key=lambda i: i[1], reverse=True)
     all_non_zero_scorers = []
@@ -77,7 +109,11 @@ def get_overall_score(json_data_path, filters, attributes):
             break
         all_non_zero_scorers.append({supplier_data[idx]["Supplier Name"]: score})
 
-    return all_non_zero_scorers
+    if len(all_non_zero_scorers) > 0:
+        recommended_supplier = list(all_non_zero_scorers[0].keys())
+        recommended_supplier_score = list(all_non_zero_scorers[0].values())
+        message += "Recommending {} with {} score".format(recommended_supplier, recommended_supplier_score)
+    return all_non_zero_scorers, message
 
 # get_overall_score(filters, attributes)
 
