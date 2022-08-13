@@ -111,7 +111,7 @@ def moo_set(functions, all_objectives=None, distinct=True):
     return is_efficient
 
 
-def score(functions, distinct=True):
+def score(functions, all_objectives, distinct=True):
     n_functions, n_objectives = functions.shape
     scores = np.zeros(n_functions, dtype=np.int_)
     remaining = np.ones(n_functions, dtype=np.bool_)
@@ -119,7 +119,7 @@ def score(functions, distinct=True):
 
     current_score = 1
     while np.sum(remaining) > 0:
-        frontier_mask = moo_set(functions[remaining], distinct=distinct)
+        frontier_mask = moo_set(functions[remaining], all_objectives=all_objectives, distinct=distinct)
         processed[np.logical_not(processed)] = frontier_mask
         scores[np.logical_and(processed, remaining)] = current_score
         remaining[remaining] = np.logical_not(frontier_mask)
@@ -129,7 +129,7 @@ def score(functions, distinct=True):
     return [max_score - r + 1 for r in scores]
 
 
-def get_moo__score(functions, all_objectives=None, distinct=True):
+def get_moo_rank(functions, all_objectives=None, distinct=True):
     moo_score_algorithm = score
 
     functions, all_objectives = validate_inputs(functions=functions, all_objectives=all_objectives)
@@ -153,7 +153,7 @@ def get_moo__score(functions, all_objectives=None, distinct=True):
         if functions.dtype == np.dtype("O"):
             raise TypeError(message.format(functions.dtype))
 
-    # CASE 1: THE ONLY all_objectives IS MINIMIZATION
+    # CASE 1: THE ONLY OBJECTIVE IS MINIMIZATION
     # ---------------------------------------
     if all(s == "min" for s in all_objectives):
         if isinstance(functions, pd.DataFrame):

@@ -11,9 +11,9 @@ all_suppliers = []  # {service: [] for service in all_services}
 count = 0
 with open('helpers/all_india_services_data.json') as services_json:
     suppliers_data = json.loads(services_json.read())
-    total = len(suppliers_data) * 5 * len(all_countries) * len(all_services)
+    total = len(suppliers_data) * 6 * len(all_countries) * len(all_services)
     for supplier in suppliers_data:
-        for i in range(5):
+        for i in range(6):
             for country in all_countries:
                 for service in all_services:
                     print(f"Generating {count} / {total}")
@@ -42,8 +42,7 @@ with open('helpers/all_india_services_data.json') as services_json:
 
 print(len(all_suppliers))
 
-for service in all_services:
-    with open(f'/Users/vigneswaran/Projects/sirion/SupplierPerformance/sample_data/all_suppliers.json', 'w', encoding='utf-8') as f:
-        json.dump(all_suppliers, f, ensure_ascii=False, indent=4)
+with open(f'/Users/vigneswaran/Projects/sirion/SupplierPerformance/sample_data/all_suppliers.json', 'w', encoding='utf-8') as f:
+    json.dump(all_suppliers, f, ensure_ascii=False, indent=4)
 
 
