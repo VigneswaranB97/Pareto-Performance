@@ -1,1 +1,1 @@
-# SupplierPerformance
+# Pareto-Performance

@@ -1,0 +1,709 @@
+[
+  {
+    "Rank": 1,
+    "Company": "TCS",
+    "2014-15 Revenues (Rs Cr)": "94,648",
+    "Growth%": "16",
+    "2013-14 Revenues (Rs Cr)": "81,809"
+  },
+  {
+    "Rank": 2,
+    "Company": "Cognizant Technology Solutions",
+    "2014-15 Revenues (Rs Cr)": "65,779",
+    "Growth%": "18",
+    "2013-14 Revenues (Rs Cr)": "55,894"
+  },
+  {
+    "Rank": 3,
+    "Company": "Infosys Technologies",
+    "2014-15 Revenues (Rs Cr)": "53,319",
+    "Growth%": "6",
+    "2013-14 Revenues (Rs Cr)": "50,133"
+  },
+  {
+    "Rank": 4,
+    "Company": "Wipro",
+    "2014-15 Revenues (Rs Cr)": "47,318",
+    "Growth%": "8",
+    "2013-14 Revenues (Rs Cr)": "43,763"
+  },
+  {
+    "Rank": 5,
+    "Company": "Hewlett-Packard ",
+    "2014-15 Revenues (Rs Cr)": "37,985",
+    "Growth%": "4",
+    "2013-14 Revenues (Rs Cr)": "36,697"
+  },
+  {
+    "Rank": 6,
+    "Company": "HCL Technologies",
+    "2014-15 Revenues (Rs Cr)": "35,709",
+    "Growth%": "14",
+    "2013-14 Revenues (Rs Cr)": "31,200"
+  },
+  {
+    "Rank": 7,
+    "Company": "Tech Mahindra",
+    "2014-15 Revenues (Rs Cr)": "22,621",
+    "Growth%": "20",
+    "2013-14 Revenues (Rs Cr)": "18,831"
+  },
+  {
+    "Rank": 8,
+    "Company": "IBM ",
+    "2014-15 Revenues (Rs Cr)": "20,442",
+    "Growth%": "9",
+    "2013-14 Revenues (Rs Cr)": "18,754"
+  },
+  {
+    "Rank": 9,
+    "Company": "Ingram Micro ",
+    "2014-15 Revenues (Rs Cr)": "15,823",
+    "Growth%": "12",
+    "2013-14 Revenues (Rs Cr)": "14,128"
+  },
+  {
+    "Rank": 10,
+    "Company": "Redington ",
+    "2014-15 Revenues (Rs Cr)": "14,610",
+    "Growth%": "7",
+    "2013-14 Revenues (Rs Cr)": "13,657"
+  },
+  {
+    "Rank": 11,
+    "Company": "Dell ",
+    "2014-15 Revenues (Rs Cr)": "13,984",
+    "Growth%": "30",
+    "2013-14 Revenues (Rs Cr)": "10,757"
+  },
+  {
+    "Rank": 12,
+    "Company": "Oracle ",
+    "2014-15 Revenues (Rs Cr)": "12,440",
+    "Growth%": "9",
+    "2013-14 Revenues (Rs Cr)": "11,437"
+  },
+  {
+    "Rank": 13,
+    "Company": "SAP ",
+    "2014-15 Revenues (Rs Cr)": "9,896",
+    "Growth%": "4",
+    "2013-14 Revenues (Rs Cr)": "9,520"
+  },
+  {
+    "Rank": 14,
+    "Company": "Cisco Systems ",
+    "2014-15 Revenues (Rs Cr)": "9,740",
+    "Growth%": "9",
+    "2013-14 Revenues (Rs Cr)": "8,902"
+  },
+  {
+    "Rank": 15,
+    "Company": "Microsoft ",
+    "2014-15 Revenues (Rs Cr)": "8,624",
+    "Growth%": "19",
+    "2013-14 Revenues (Rs Cr)": "7,224"
+  },
+  {
+    "Rank": 16,
+    "Company": "IGATE",
+    "2014-15 Revenues (Rs Cr)": "7,879",
+    "Growth%": "17",
+    "2013-14 Revenues (Rs Cr)": "6,734"
+  },
+  {
+    "Rank": 17,
+    "Company": "APC by Schneider Electric ",
+    "2014-15 Revenues (Rs Cr)": "6,848",
+    "Growth%": "12",
+    "2013-14 Revenues (Rs Cr)": "6,114"
+  },
+  {
+    "Rank": 18,
+    "Company": "Capgemini ",
+    "2014-15 Revenues (Rs Cr)": "6,305",
+    "Growth%": "15",
+    "2013-14 Revenues (Rs Cr)": "5,483"
+  },
+  {
+    "Rank": 19,
+    "Company": "Intel ",
+    "2014-15 Revenues (Rs Cr)": "6,292",
+    "Growth%": "-2",
+    "2013-14 Revenues (Rs Cr)": "6,412"
+  },
+  {
+    "Rank": 20,
+    "Company": "HCL Infosystems",
+    "2014-15 Revenues (Rs Cr)": "6,270",
+    "Growth%": "-24",
+    "2013-14 Revenues (Rs Cr)": "8,218"
+  },
+  {
+    "Rank": 21,
+    "Company": "Lenovo ",
+    "2014-15 Revenues (Rs Cr)": "6,020",
+    "Growth%": "5",
+    "2013-14 Revenues (Rs Cr)": "5,740"
+  },
+  {
+    "Rank": 22,
+    "Company": "Savex Computers",
+    "2014-15 Revenues (Rs Cr)": "5,905",
+    "Growth%": "4",
+    "2013-14 Revenues (Rs Cr)": "5,678"
+  },
+  {
+    "Rank": 23,
+    "Company": "Mphasis",
+    "2014-15 Revenues (Rs Cr)": "5,806",
+    "Growth%": "-3",
+    "2013-14 Revenues (Rs Cr)": "5,986"
+  },
+  {
+    "Rank": 24,
+    "Company": "Syntel",
+    "2014-15 Revenues (Rs Cr)": "5,586",
+    "Growth%": "7",
+    "2013-14 Revenues (Rs Cr)": "5,210"
+  },
+  {
+    "Rank": 25,
+    "Company": "L&T Infotech",
+    "2014-15 Revenues (Rs Cr)": "5,480",
+    "Growth%": "13",
+    "2013-14 Revenues (Rs Cr)": "4,850"
+  },
+  {
+    "Rank": 26,
+    "Company": "Samsung ",
+    "2014-15 Revenues (Rs Cr)": "3,995",
+    "Growth%": "1",
+    "2013-14 Revenues (Rs Cr)": "3,950"
+  },
+  {
+    "Rank": 27,
+    "Company": "Acer ",
+    "2014-15 Revenues (Rs Cr)": "3,692",
+    "Growth%": "2",
+    "2013-14 Revenues (Rs Cr)": "3,602"
+  },
+  {
+    "Rank": 28,
+    "Company": "Rolta ",
+    "2014-15 Revenues (Rs Cr)": "3,679",
+    "Growth%": "18",
+    "2013-14 Revenues (Rs Cr)": "3,114"
+  },
+  {
+    "Rank": 29,
+    "Company": "Mindtree",
+    "2014-15 Revenues (Rs Cr)": "3,547",
+    "Growth%": "17",
+    "2013-14 Revenues (Rs Cr)": "3,032"
+  },
+  {
+    "Rank": 30,
+    "Company": "Genpact",
+    "2014-15 Revenues (Rs Cr)": "3,320",
+    "Growth%": "6",
+    "2013-14 Revenues (Rs Cr)": "3,138"
+  },
+  {
+    "Rank": 31,
+    "Company": "KPIT Technologies",
+    "2014-15 Revenues (Rs Cr)": "2,990",
+    "Growth%": "11",
+    "2013-14 Revenues (Rs Cr)": "2,694"
+  },
+  {
+    "Rank": 32,
+    "Company": "Rashi Peripherals",
+    "2014-15 Revenues (Rs Cr)": "2,984",
+    "Growth%": "36",
+    "2013-14 Revenues (Rs Cr)": "2,197"
+  },
+  {
+    "Rank": 33,
+    "Company": "CSC ",
+    "2014-15 Revenues (Rs Cr)": "2,961",
+    "Growth%": "3",
+    "2013-14 Revenues (Rs Cr)": "2,875"
+  },
+  {
+    "Rank": 34,
+    "Company": "Vakrangee",
+    "2014-15 Revenues (Rs Cr)": "2,775",
+    "Growth%": "41",
+    "2013-14 Revenues (Rs Cr)": "1,965"
+  },
+  {
+    "Rank": 35,
+    "Company": "Cyient",
+    "2014-15 Revenues (Rs Cr)": "2,736",
+    "Growth%": "24",
+    "2013-14 Revenues (Rs Cr)": "2,206"
+  },
+  {
+    "Rank": 36,
+    "Company": "Hexaware Technologies",
+    "2014-15 Revenues (Rs Cr)": "2,706",
+    "Growth%": "14",
+    "2013-14 Revenues (Rs Cr)": "2,367"
+  },
+  {
+    "Rank": 37,
+    "Company": "Tata Technologies",
+    "2014-15 Revenues (Rs Cr)": "2,644",
+    "Growth%": "10",
+    "2013-14 Revenues (Rs Cr)": "2,395"
+  },
+  {
+    "Rank": 38,
+    "Company": "Zensar Technologies",
+    "2014-15 Revenues (Rs Cr)": "2,628",
+    "Growth%": "13",
+    "2013-14 Revenues (Rs Cr)": "2,316"
+  },
+  {
+    "Rank": 39,
+    "Company": "Iris Computers",
+    "2014-15 Revenues (Rs Cr)": "2,573",
+    "Growth%": "36",
+    "2013-14 Revenues (Rs Cr)": "1,893"
+  },
+  {
+    "Rank": 40,
+    "Company": "Apple ",
+    "2014-15 Revenues (Rs Cr)": "2,560",
+    "Growth%": "40",
+    "2013-14 Revenues (Rs Cr)": "1,823"
+  },
+  {
+    "Rank": 41,
+    "Company": "CMC",
+    "2014-15 Revenues (Rs Cr)": "2,513",
+    "Growth%": "13",
+    "2013-14 Revenues (Rs Cr)": "2,231"
+  },
+  {
+    "Rank": 42,
+    "Company": "EMC ",
+    "2014-15 Revenues (Rs Cr)": "2,452",
+    "Growth%": "15",
+    "2013-14 Revenues (Rs Cr)": "2,126"
+  },
+  {
+    "Rank": 43,
+    "Company": "NIIT Technologies",
+    "2014-15 Revenues (Rs Cr)": "2,373",
+    "Growth%": "3",
+    "2013-14 Revenues (Rs Cr)": "2,305"
+  },
+  {
+    "Rank": 44,
+    "Company": "Asus ",
+    "2014-15 Revenues (Rs Cr)": "2,234",
+    "Growth%": "25",
+    "2013-14 Revenues (Rs Cr)": "1,787"
+  },
+  {
+    "Rank": 45,
+    "Company": "Compuage Infocom",
+    "2014-15 Revenues (Rs Cr)": "2,129",
+    "Growth%": "-7",
+    "2013-14 Revenues (Rs Cr)": "2,275"
+  },
+  {
+    "Rank": 46,
+    "Company": "Texas Instruments ",
+    "2014-15 Revenues (Rs Cr)": "2,110",
+    "Growth%": "9",
+    "2013-14 Revenues (Rs Cr)": "1,936"
+  },
+  {
+    "Rank": 47,
+    "Company": "Canon ",
+    "2014-15 Revenues (Rs Cr)": "2,026",
+    "Growth%": "6",
+    "2013-14 Revenues (Rs Cr)": "1,910"
+  },
+  {
+    "Rank": 48,
+    "Company": "Lycos Internet",
+    "2014-15 Revenues (Rs Cr)": "1,957",
+    "Growth%": "17",
+    "2013-14 Revenues (Rs Cr)": "1,673"
+  },
+  {
+    "Rank": 49,
+    "Company": "Supertron Electronics",
+    "2014-15 Revenues (Rs Cr)": "1,948",
+    "Growth%": "24",
+    "2013-14 Revenues (Rs Cr)": "1,575"
+  },
+  {
+    "Rank": 50,
+    "Company": "Polaris Consulting & Services",
+    "2014-15 Revenues (Rs Cr)": "1,894",
+    "Growth%": "NA",
+    "2013-14 Revenues (Rs Cr)": "NA"
+  },
+  {
+    "Rank": 51,
+    "Company": "Persistent Systems",
+    "2014-15 Revenues (Rs Cr)": "1,882",
+    "Growth%": "12",
+    "2013-14 Revenues (Rs Cr)": "1,669"
+  },
+  {
+    "Rank": 52,
+    "Company": "Infinite Computer Solutions",
+    "2014-15 Revenues (Rs Cr)": "1,737",
+    "Growth%": "0.3",
+    "2013-14 Revenues (Rs Cr)": "1,733"
+  },
+  {
+    "Rank": 53,
+    "Company": "Sonata Software",
+    "2014-15 Revenues (Rs Cr)": "1,682",
+    "Growth%": "7",
+    "2013-14 Revenues (Rs Cr)": "1,566"
+  },
+  {
+    "Rank": 54,
+    "Company": "Ricoh ",
+    "2014-15 Revenues (Rs Cr)": "1,637",
+    "Growth%": "56",
+    "2013-14 Revenues (Rs Cr)": "1,048"
+  },
+  {
+    "Rank": 55,
+    "Company": "Neoteric Infomatique",
+    "2014-15 Revenues (Rs Cr)": "1,605",
+    "Growth%": "7",
+    "2013-14 Revenues (Rs Cr)": "1,500"
+  },
+  {
+    "Rank": 56,
+    "Company": "Symantec ",
+    "2014-15 Revenues (Rs Cr)": "1,534",
+    "Growth%": "8",
+    "2013-14 Revenues (Rs Cr)": "1,420"
+  },
+  {
+    "Rank": 57,
+    "Company": "ITC Infotech ",
+    "2014-15 Revenues (Rs Cr)": "1,458",
+    "Growth%": "14",
+    "2013-14 Revenues (Rs Cr)": "1,277"
+  },
+  {
+    "Rank": 58,
+    "Company": "NetApp ",
+    "2014-15 Revenues (Rs Cr)": "1,438",
+    "Growth%": "12",
+    "2013-14 Revenues (Rs Cr)": "1,284"
+  },
+  {
+    "Rank": 59,
+    "Company": "SFO Technologies",
+    "2014-15 Revenues (Rs Cr)": "1,370",
+    "Growth%": "14",
+    "2013-14 Revenues (Rs Cr)": "1,200"
+  },
+  {
+    "Rank": 60,
+    "Company": "3i Infotech",
+    "2014-15 Revenues (Rs Cr)": "1,344",
+    "Growth%": "3",
+    "2013-14 Revenues (Rs Cr)": "1,308"
+  },
+  {
+    "Rank": 61,
+    "Company": "Sify Technologies",
+    "2014-15 Revenues (Rs Cr)": "1,286",
+    "Growth%": "23",
+    "2013-14 Revenues (Rs Cr)": "1,046"
+  },
+  {
+    "Rank": 62,
+    "Company": "Seagate ",
+    "2014-15 Revenues (Rs Cr)": "1,210",
+    "Growth%": "4",
+    "2013-14 Revenues (Rs Cr)": "1,163"
+  },
+  {
+    "Rank": 63,
+    "Company": "CSS Corp",
+    "2014-15 Revenues (Rs Cr)": "1,198",
+    "Growth%": "11",
+    "2013-14 Revenues (Rs Cr)": "1,080"
+  },
+  {
+    "Rank": 64,
+    "Company": "Zicom Electronic Security Systems",
+    "2014-15 Revenues (Rs Cr)": "1,108",
+    "Growth%": "20",
+    "2013-14 Revenues (Rs Cr)": "926"
+  },
+  {
+    "Rank": 65,
+    "Company": "Geometric",
+    "2014-15 Revenues (Rs Cr)": "1,106",
+    "Growth%": "1",
+    "2013-14 Revenues (Rs Cr)": "1,095"
+  },
+  {
+    "Rank": 66,
+    "Company": "Epson ",
+    "2014-15 Revenues (Rs Cr)": "1,078",
+    "Growth%": "23",
+    "2013-14 Revenues (Rs Cr)": "880"
+  },
+  {
+    "Rank": 67,
+    "Company": "Mastek",
+    "2014-15 Revenues (Rs Cr)": "1,030",
+    "Growth%": "13",
+    "2013-14 Revenues (Rs Cr)": "910"
+  },
+  {
+    "Rank": 68,
+    "Company": "Presidio",
+    "2014-15 Revenues (Rs Cr)": "1,025",
+    "Growth%": "2",
+    "2013-14 Revenues (Rs Cr)": "912"
+  },
+  {
+    "Rank": 69,
+    "Company": "Birlasoft",
+    "2014-15 Revenues (Rs Cr)": "995",
+    "Growth%": "6",
+    "2013-14 Revenues (Rs Cr)": "939"
+  },
+  {
+    "Rank": 70,
+    "Company": "NIIT Limited",
+    "2014-15 Revenues (Rs Cr)": "957",
+    "Growth%": "1",
+    "2013-14 Revenues (Rs Cr)": "951"
+  },
+  {
+    "Rank": 71,
+    "Company": "eClerx",
+    "2014-15 Revenues (Rs Cr)": "942",
+    "Growth%": "12",
+    "2013-14 Revenues (Rs Cr)": "841"
+  },
+  {
+    "Rank": 72,
+    "Company": "OnMobile Global",
+    "2014-15 Revenues (Rs Cr)": "917",
+    "Growth%": "6",
+    "2013-14 Revenues (Rs Cr)": "865"
+  },
+  {
+    "Rank": 73,
+    "Company": "AGC Networks",
+    "2014-15 Revenues (Rs Cr)": "888",
+    "Growth%": "14",
+    "2013-14 Revenues (Rs Cr)": "776"
+  },
+  {
+    "Rank": 74,
+    "Company": "Tata Elxsi",
+    "2014-15 Revenues (Rs Cr)": "853",
+    "Growth%": "10",
+    "2013-14 Revenues (Rs Cr)": "775"
+  },
+  {
+    "Rank": 75,
+    "Company": "Intex Technologies",
+    "2014-15 Revenues (Rs Cr)": "835",
+    "Growth%": "15",
+    "2013-14 Revenues (Rs Cr)": "726"
+  },
+  {
+    "Rank": 76,
+    "Company": "TAKE Solutions",
+    "2014-15 Revenues (Rs Cr)": "799",
+    "Growth%": "-2",
+    "2013-14 Revenues (Rs Cr)": "815"
+  },
+  {
+    "Rank": 77,
+    "Company": "Adobe Systems ",
+    "2014-15 Revenues (Rs Cr)": "796",
+    "Growth%": "15",
+    "2013-14 Revenues (Rs Cr)": "690"
+  },
+  {
+    "Rank": 78,
+    "Company": "Aurionpro",
+    "2014-15 Revenues (Rs Cr)": "737",
+    "Growth%": "14",
+    "2013-14 Revenues (Rs Cr)": "649"
+  },
+  {
+    "Rank": 79,
+    "Company": "Juniper Networks ",
+    "2014-15 Revenues (Rs Cr)": "679",
+    "Growth%": "-4",
+    "2013-14 Revenues (Rs Cr)": "709"
+  },
+  {
+    "Rank": 80,
+    "Company": "Cybage Software",
+    "2014-15 Revenues (Rs Cr)": "670",
+    "Growth%": "15",
+    "2013-14 Revenues (Rs Cr)": "582"
+  },
+  {
+    "Rank": 81,
+    "Company": "R Systems International",
+    "2014-15 Revenues (Rs Cr)": "663",
+    "Growth%": "6",
+    "2013-14 Revenues (Rs Cr)": "627"
+  },
+  {
+    "Rank": 82,
+    "Company": "VMware",
+    "2014-15 Revenues (Rs Cr)": "650",
+    "Growth%": "NA",
+    "2013-14 Revenues (Rs Cr)": "NA"
+  },
+  {
+    "Rank": 83,
+    "Company": "CORE Education & Technologies",
+    "2014-15 Revenues (Rs Cr)": "628",
+    "Growth%": "-51",
+    "2013-14 Revenues (Rs Cr)": "1,272"
+  },
+  {
+    "Rank": 84,
+    "Company": "D-Link",
+    "2014-15 Revenues (Rs Cr)": "626",
+    "Growth%": "29",
+    "2013-14 Revenues (Rs Cr)": "487"
+  },
+  {
+    "Rank": 85,
+    "Company": "Fujitsu ",
+    "2014-15 Revenues (Rs Cr)": "625",
+    "Growth%": "19",
+    "2013-14 Revenues (Rs Cr)": "525"
+  },
+  {
+    "Rank": 86,
+    "Company": "AMD ",
+    "2014-15 Revenues (Rs Cr)": "610",
+    "Growth%": "16",
+    "2013-14 Revenues (Rs Cr)": "526"
+  },
+  {
+    "Rank": 87,
+    "Company": "Intellect Design Arena",
+    "2014-15 Revenues (Rs Cr)": "605",
+    "Growth%": "14",
+    "2013-14 Revenues (Rs Cr)": "533"
+  },
+  {
+    "Rank": 88,
+    "Company": "Fortune Marketing",
+    "2014-15 Revenues (Rs Cr)": "560",
+    "Growth%": "10",
+    "2013-14 Revenues (Rs Cr)": "508"
+  },
+  {
+    "Rank": 89,
+    "Company": "Trigyn Technologies",
+    "2014-15 Revenues (Rs Cr)": "493",
+    "Growth%": "9",
+    "2013-14 Revenues (Rs Cr)": "452"
+  },
+  {
+    "Rank": 90,
+    "Company": "Accel Frontline",
+    "2014-15 Revenues (Rs Cr)": "486",
+    "Growth%": "15",
+    "2013-14 Revenues (Rs Cr)": "421"
+  },
+  {
+    "Rank": 91,
+    "Company": "LG ",
+    "2014-15 Revenues (Rs Cr)": "470",
+    "Growth%": "23",
+    "2013-14 Revenues (Rs Cr)": "381"
+  },
+  {
+    "Rank": 92,
+    "Company": "Team Computers",
+    "2014-15 Revenues (Rs Cr)": "452",
+    "Growth%": "47",
+    "2013-14 Revenues (Rs Cr)": "307"
+  },
+  {
+    "Rank": 93,
+    "Company": "CA Technologies ",
+    "2014-15 Revenues (Rs Cr)": "450",
+    "Growth%": "-18",
+    "2013-14 Revenues (Rs Cr)": "550"
+  },
+  {
+    "Rank": 94,
+    "Company": "RS Software",
+    "2014-15 Revenues (Rs Cr)": "439",
+    "Growth%": "15",
+    "2013-14 Revenues (Rs Cr)": "382"
+  },
+  {
+    "Rank": 95,
+    "Company": "Sasken Communication Technology",
+    "2014-15 Revenues (Rs Cr)": "428",
+    "Growth%": "-7",
+    "2013-14 Revenues (Rs Cr)": "458"
+  },
+  {
+    "Rank": 96,
+    "Company": "Zylog Systems",
+    "2014-15 Revenues (Rs Cr)": "411",
+    "Growth%": "-75",
+    "2013-14 Revenues (Rs Cr)": "1,668"
+  },
+  {
+    "Rank": 97,
+    "Company": "Subex",
+    "2014-15 Revenues (Rs Cr)": "361",
+    "Growth%": "5",
+    "2013-14 Revenues (Rs Cr)": "344"
+  },
+  {
+    "Rank": 98,
+    "Company": "Nucleus Software",
+    "2014-15 Revenues (Rs Cr)": "353",
+    "Growth%": "2",
+    "2013-14 Revenues (Rs Cr)": "346"
+  },
+  {
+    "Rank": 99,
+    "Company": "Huawei ",
+    "2014-15 Revenues (Rs Cr)": "224",
+    "Growth%": "32",
+    "2013-14 Revenues (Rs Cr)": "170"
+  },
+  {
+    "Rank": 100,
+    "Company": "SQS  BFSI",
+    "2014-15 Revenues (Rs Cr)": "216",
+    "Growth%": "10",
+    "2013-14 Revenues (Rs Cr)": "197"
+  },
+  {
+    "Rank": 101,
+    "Company": "Xerox ",
+    "2014-15 Revenues (Rs Cr)": "215",
+    "Growth%": "2",
+    "2013-14 Revenues (Rs Cr)": "196"
+  }
+]
