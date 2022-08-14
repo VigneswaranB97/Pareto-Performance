@@ -18,4 +18,9 @@ $ python3 data_generator.py
 $ python3 run.py
 ```
 
-
+## To run FastAPI Server
+```
+$ cd PerformanceEngine
+$ pip3 install -r requirements.txt
+$ uvicorn index:app --reload
+```
