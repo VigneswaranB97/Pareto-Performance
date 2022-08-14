@@ -8,7 +8,11 @@ import {
 } from "@mui/material";
 
 const Form = (props) => {
+  console.log(props);
   const attributes = Array.from(props?.attributes);
+  const inpLabel = props?.inpLabel || "Criteria";
+  const inpValues = props?.inpValues || [">", "<", ">=", "<=", "=="];
+
   return (
     <form
       action=""
@@ -35,7 +39,7 @@ const Form = (props) => {
 
       <div className="criteria">
         <FormControl size="small" sx={{ m: 1, minWidth: 220 }}>
-          <InputLabel id="demo-simple-select-label">Criteria</InputLabel>
+          <InputLabel id="demo-simple-select-label">{inpLabel}</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -43,11 +47,10 @@ const Form = (props) => {
             label="Criteria"
             // onChange={handleChange}
           >
-            <MenuItem value={10}>Greater than</MenuItem>
-            <MenuItem value={20}>Lesser than</MenuItem>
-            <MenuItem value={30}>Greater than or equal to</MenuItem>
-            <MenuItem value={30}>Lesser than or equal to</MenuItem>
-            <MenuItem value={30}>Equals to</MenuItem>
+            {inpValues &&
+              inpValues.map((val) => {
+                return <MenuItem value={val}>{val}</MenuItem>;
+              })}
           </Select>
         </FormControl>
       </div>

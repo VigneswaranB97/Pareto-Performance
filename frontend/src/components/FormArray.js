@@ -27,17 +27,22 @@ const buttonStyle = {
 };
 
 const FormArray = () => {
-  let [numOfForms, setNumOfForms] = useState(1);
-  const [attributesSet, setattributeData] = useState(new Set());
+  let [numOfFilterForms, setnumOfFilterForms] = useState(1);
+  let [numOfAttributeForms, setnumOfAttributeForms] = useState(1);
+  const [filtersSet, setattributeData] = useState(new Set());
   const [alert, setAlert] = useState(null);
 
-  const addForm = () => {
-    let forms = numOfForms + 1;
-    setNumOfForms(forms);
+  const addFilterForm = () => {
+    let forms = numOfFilterForms + 1;
+    setnumOfFilterForms(forms);
+  };
+
+  const addAttributeForm = () => {
+    let forms = numOfAttributeForms + 1;
+    setnumOfAttributeForms(forms);
   };
 
   const processJson = (val) => {
-    console.log(val);
     try {
       JSON.parse(val);
       setAlert({ msg: "JSON imported successfully!!", type: "success" });
@@ -51,15 +56,13 @@ const FormArray = () => {
     let all_keys = [];
     suppliers.forEach((supplier) => {
       Object.keys(supplier).forEach((supplierKey) => {
-        console.log(supplierKey);
         all_keys.push(supplierKey);
-        // if (!attributesSet.has(supplierKey)) {
-        //   attributesSet.add(supplierKey);
+        // if (!filtersSet.has(supplierKey)) {
+        //   filtersSet.add(supplierKey);
         // }
       });
     });
     const distinct_keys = new Set(all_keys);
-    console.log(distinct_keys);
     setattributeData(distinct_keys);
   };
 
@@ -92,9 +95,9 @@ const FormArray = () => {
             >
               <ImportJson processJson={processJson} />
             </div>
-            <hr />
-            {attributesSet.size > 0 && (
+            {filtersSet.size > 0 && (
               <>
+                <hr />
                 <Typography variant="h5" component="div">
                   Filters
                 </Typography>
@@ -109,10 +112,48 @@ const FormArray = () => {
                   {(() => {
                     const options = [];
 
-                    for (let i = 0; i < numOfForms; i++) {
+                    for (let i = 0; i < numOfFilterForms; i++) {
                       options.push(
                         <Fragment key={i + 1}>
-                          <Form attributes={attributesSet} /> <br />
+                          <Form attributes={filtersSet} /> <br />
+                        </Fragment>
+                      );
+                    }
+                    return options;
+                  })()}
+                </div>
+                <button onClick={addFilterForm} style={buttonStyle}>
+                  Add New Filter
+                </button>
+              </>
+            )}
+
+            {filtersSet.size > 0 && (
+              <>
+                <hr />
+                <Typography variant="h5" component="div">
+                  Attributes
+                </Typography>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  {(() => {
+                    const options = [];
+
+                    for (let i = 0; i < numOfAttributeForms; i++) {
+                      options.push(
+                        <Fragment key={i + 1}>
+                          <Form
+                            attributes={filtersSet}
+                            inpLabel="Objective"
+                            inpValues={["MAXIMIZE", "MINIMIZE"]}
+                          />
+                          <br />
                         </Fragment>
                       );
                     }
@@ -120,19 +161,11 @@ const FormArray = () => {
                     return options;
                   })()}
                 </div>
-                <button onClick={addForm} style={buttonStyle}>
-                  Add new Form
+                <button onClick={addAttributeForm} style={buttonStyle}>
+                  Add New Attribute
                 </button>
               </>
             )}
-
-            <hr />
-            <Typography variant="h5" component="div">
-              Attributes
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Form
-            </Typography>
           </CardContent>
         </Card>
       </Container>
