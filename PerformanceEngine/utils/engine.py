@@ -15,8 +15,41 @@ logging.getLogger().addHandler(logging.StreamHandler())
 def all_subsets(ss):
     return chain(*map(lambda x: combinations(ss, x), range(2, len(ss)+1)))
 
+def update_weightage(attributes, prioritize=True):
+    num_attributes = len(attributes)
+    if not prioritize:
+        for attr in attributes:
+            attributes[attr]['weightage'] = 100 / num_attributes
+    else:
+        # weightages = {k: v['weightage'] for k, v in attributes.items()}
+        attr_tuple = sorted(attributes.items(), key=lambda i: i[1]['weightage'])
+        start_weightage = 50 / num_attributes
+        diff = 25 / num_attributes
+        for idx, attr in enumerate(attr_tuple):
+            attributes[attr[0]]['weightage'] = start_weightage + (diff * idx)
+
+    logging.info("Attributes after readjusting {}".format(attributes))
+
 def get_overall_score(supplier_data, filters, attributes):
+    sum_weightage = 0
     message = ""
+    for attr, val in attributes.items():
+        if "weightage" not in val:
+            sum_weightage = 0
+            break
+        sum_weightage += val["weightage"]
+
+    if sum_weightage == 0:
+        msg = "Weightage is Equally re-adjusted. "
+        logging.info(msg)
+        message += msg
+        update_weightage(attributes, prioritize=False)
+    elif sum_weightage != 100:
+        msg = "Total Weightage Not equal to 100. So weightage re-adjusted based on the input. "
+        logging.info(msg)
+        message += msg
+        update_weightage(attributes, prioritize=True)
+
     before_filter = copy.deepcopy(supplier_data)
     for f in filters:
         start = time.time()
