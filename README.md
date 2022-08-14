@@ -14,6 +14,7 @@ Project is created with:
 Download Submitted zip file or clone the repo
 ```
 $ cd PerformanceEngine
+$ mkdir sample_data
 $ pip3 install -r requirements.txt
 $ python3 data_generator.py
 $ python3 run.py
