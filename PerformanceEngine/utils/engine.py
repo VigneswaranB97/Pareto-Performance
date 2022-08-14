@@ -3,12 +3,14 @@ import json
 from itertools import chain, combinations
 import time
 import logging
+import multiprocessing
 
 from .lp_helper import get_linear_programming_scores
-from .optimisation import get_moo_scores
+from .optimisation import moo_run_combination
 from .constants import moo_all_objectives, moo_score
 
 logging.basicConfig(filename='all_logs.log', format='%(asctime)s %(message)s', level=logging.DEBUG)
+logging.getLogger().addHandler(logging.StreamHandler())
 
 def all_subsets(ss):
     return chain(*map(lambda x: combinations(ss, x), range(2, len(ss)+1)))
@@ -17,6 +19,8 @@ def get_overall_score(supplier_data, filters, attributes):
     message = ""
     before_filter = copy.deepcopy(supplier_data)
     for f in filters:
+        start = time.time()
+        logging.info("Filtering {} in progress...".format(f))
         if filters[f]["criteria"] == ">=":
             current_filter = [i for i in supplier_data if filters[f]["value"] >= i[f]]
             if len(current_filter) == 0:
@@ -47,9 +51,13 @@ def get_overall_score(supplier_data, filters, attributes):
                 message += "No Supplier found with value {} for {}, So Ignoring {}! ".format(filters[f]["value"], f, f)
             else:
                 supplier_data = current_filter
+        end = time.time()
+        logging.info("Filtering {} completed in {}".format(f, end - start))
 
     message += "{} Suppliers Found after filtration! ".format(len(supplier_data))
-    overall_scores = {}
+    manager = multiprocessing.Manager()
+    overall_scores = manager.dict()
+
     if not supplier_data:
         supplier_data = copy.deepcopy(before_filter)
 
@@ -64,21 +72,17 @@ def get_overall_score(supplier_data, filters, attributes):
     # Get Scores using moo logic
     logging.info(f"Running moo logic")
     all_combinations = all_subsets(attributes)
-    for comb in all_combinations:
-        logging.info(f"Running {comb} for Multi-Objective-Optimisation")
-        data = {}
-        all_objectives = []
-        total_weightage = 0
-        for attribute in comb:
-            data[attribute] = []
-            for supplier in supplier_data:
-                data[attribute].append(supplier[attribute])
-            all_objectives.append(moo_all_objectives[attributes[attribute]["Objective"]])
-            total_weightage += attributes[attribute]["Weightage"]
 
-        scores = get_moo_scores(data, all_objectives)
-        for i in scores:
-            overall_scores[i] += moo_score * (total_weightage if total_weightage != 0 else 1)
+    processes = []
+    for comb in all_combinations:
+        logging.info(f"Starting {comb} for Multi-Objective-Optimisation")
+        p = multiprocessing.Process(target=moo_run_combination, args=(comb, supplier_data, attributes, overall_scores,))
+        # moo_run_combination(comb, supplier_data, attributes, overall_scores)
+        p.start()
+        processes.append(p)
+
+    for p in processes:
+        p.join()
 
     moo_end = time.time()
     logging.info(f"moo Completed in {int(moo_end - moo_start)} seconds")

@@ -1,6 +1,7 @@
 import json
 
 from utils.engine import get_overall_score
+import logging
 
 data = {
     "suppliers": [
@@ -1036,8 +1037,10 @@ attributes = {
 }
 json_data_path = f'/Users/vigneswaran/Projects/sirion/SupplierPerformance/sample_data/all_suppliers.json'
 with open(json_data_path, 'r') as f:
+    logging.info("Getting data...")
     supplier_data = json.load(f)
-print(get_overall_score(supplier_data, filters, attributes))
+    logging.info("Starting to Process...")
+    print(get_overall_score(supplier_data, filters, attributes))
 
 
 # pareToTest1759
