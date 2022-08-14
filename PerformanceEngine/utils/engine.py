@@ -15,8 +15,41 @@ logging.getLogger().addHandler(logging.StreamHandler())
 def all_subsets(ss):
     return chain(*map(lambda x: combinations(ss, x), range(2, len(ss)+1)))
 
+def update_weightage(attributes, prioritize=True):
+    num_attributes = len(attributes)
+    if not prioritize:
+        for attr in attributes:
+            attributes[attr]['weightage'] = 100 / num_attributes
+    else:
+        # weightages = {k: v['weightage'] for k, v in attributes.items()}
+        attr_tuple = sorted(attributes.items(), key=lambda i: i[1]['weightage'])
+        start_weightage = 50 / num_attributes
+        diff = 25 / num_attributes
+        for idx, attr in enumerate(attr_tuple):
+            attributes[attr[0]]['weightage'] = start_weightage + (diff * idx)
+
+    logging.info("Attributes after readjusting {}".format(attributes))
+
 def get_overall_score(supplier_data, filters, attributes):
+    sum_weightage = 0
     message = ""
+    for attr, val in attributes.items():
+        if "weightage" not in val:
+            sum_weightage = 0
+            break
+        sum_weightage += val["weightage"]
+
+    if sum_weightage == 0:
+        msg = "Weightage is Equally re-adjusted. "
+        logging.info(msg)
+        message += msg
+        update_weightage(attributes, prioritize=False)
+    elif sum_weightage != 100:
+        msg = "Total Weightage Not equal to 100. So weightage re-adjusted based on the input. "
+        logging.info(msg)
+        message += msg
+        update_weightage(attributes, prioritize=True)
+
     before_filter = copy.deepcopy(supplier_data)
     for f in filters:
         start = time.time()
@@ -87,9 +120,10 @@ def get_overall_score(supplier_data, filters, attributes):
     moo_end = time.time()
     logging.info(f"moo Completed in {int(moo_end - moo_start)} seconds")
 
-    lp_start = time.time()
-    # # Get Scores using Linear Programming
+    # lp_start = time.time()
+    # Get Scores using Linear Programming
     # logging.info(f"Running LP logic")
+    # all_lp_process = []
     # for key, value in attributes.items():
     #     logging.info(f"Running {key} attribute for LP logic")
     #     suppliers = []
@@ -98,9 +132,12 @@ def get_overall_score(supplier_data, filters, attributes):
     #         suppliers.append(i["id"])
     #         all_constants[i["id"]] = int(i[key])
     #
-    #     result = get_linear_programming_scores(suppliers, all_constants, value["Objective"], value["tends_to_value"])
-    #     for v, s in result.items():
-    #         overall_scores[int(v.split("_")[1])] += s * attributes[key]["Weightage"]
+    #     p = multiprocessing.Process(target=get_linear_programming_scores, args=(suppliers, all_constants, value["objective"], value["tends_to_value"], attributes, overall_scores, key))  # get_linear_programming_scores(suppliers, all_constants, value["Objective"], value["tends_to_value"], attributes, overall_scores, attribute=key)
+    #     p.start()
+    #     all_lp_process.append(p)
+    #
+    # for p in all_lp_process:
+    #     p.join()
     #
     # lp_end = time.time()
     # logging.info(f"LP Completed in {int(lp_end - lp_start)} seconds")
@@ -111,12 +148,11 @@ def get_overall_score(supplier_data, filters, attributes):
         idx, score = sup
         if score == 0:
             break
-        all_non_zero_scorers.append({supplier_data[idx]["Supplier Name"]: score})
+        supplier_data[idx]["score"] = score
+        all_non_zero_scorers.append(supplier_data[idx])
 
     if len(all_non_zero_scorers) > 0:
-        recommended_supplier = list(all_non_zero_scorers[0].keys())
-        recommended_supplier_score = list(all_non_zero_scorers[0].values())
-        message += "Recommending {} with {} score".format(recommended_supplier, recommended_supplier_score)
+        message += "Recommending {}".format(all_non_zero_scorers[0])
     return all_non_zero_scorers, message
 
 # get_overall_score(filters, attributes)

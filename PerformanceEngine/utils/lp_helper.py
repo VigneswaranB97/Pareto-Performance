@@ -1,6 +1,6 @@
 import pulp
 
-def get_linear_programming_scores(suppliers, data, objective, tends_to_value):
+def get_linear_programming_scores(suppliers, data, objective, tends_to_value, attributes, overall_scores, attribute):
     supplier = pulp.LpVariable.dicts("supplier", suppliers, lowBound=0, cat='Integer')
     objective_fn = pulp.lpSum([(supplier[i] * (data[i]))] for i in suppliers)
 
@@ -27,5 +27,8 @@ def get_linear_programming_scores(suppliers, data, objective, tends_to_value):
         except Exception as e:
             print(f'v.varValue None {e}')
             scores[name] = 0
+
+    for v, s in scores.items():
+        overall_scores[int(v.split("_")[1])] += s * attributes[attribute]["weightage"]
 
     return scores
