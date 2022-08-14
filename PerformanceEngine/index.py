@@ -59,9 +59,9 @@ class Attribute(BaseModel):
     rank: AttributeKeys
 
 class SupplierData(BaseModel):
-    suppliers: List[Supplier]
-    filters: Filter
-    attributes: Attribute
+    suppliers: List
+    filters: Dict
+    attributes: Dict
 
 # @app.post("/token")
 # async def token(form_data: OAuth2PasswordRequestForm = Depends()):
