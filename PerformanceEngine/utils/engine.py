@@ -149,12 +149,10 @@ def get_overall_score(supplier_data, filters, attributes):
         if score == 0:
             break
         supplier_data[idx]["score"] = score
-        all_non_zero_scorers.append({supplier_data[idx]["supplier_name"]: supplier_data[idx]})
+        all_non_zero_scorers.append(supplier_data[idx])
 
     if len(all_non_zero_scorers) > 0:
-        recommended_supplier = list(all_non_zero_scorers[0].keys())
-        recommended_supplier_score = list(all_non_zero_scorers[0].values())
-        message += "Recommending {} with {} score".format(recommended_supplier, recommended_supplier_score[0]['score'])
+        message += "Recommending {}".format(all_non_zero_scorers[0])
     return all_non_zero_scorers, message
 
 # get_overall_score(filters, attributes)

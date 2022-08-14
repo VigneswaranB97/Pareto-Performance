@@ -19,7 +19,7 @@ _attributes = {
         "weightage": 8,
         "tends_to_value": 1,
     },
-    "avg_cost": {
+    "cost": {
         "objective": "Minimize",
         "weightage": 20,
         "tends_to_value": 1,
