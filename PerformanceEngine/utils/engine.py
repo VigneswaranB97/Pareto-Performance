@@ -87,9 +87,10 @@ def get_overall_score(supplier_data, filters, attributes):
     moo_end = time.time()
     logging.info(f"moo Completed in {int(moo_end - moo_start)} seconds")
 
-    lp_start = time.time()
-    # # Get Scores using Linear Programming
+    # lp_start = time.time()
+    # Get Scores using Linear Programming
     # logging.info(f"Running LP logic")
+    # all_lp_process = []
     # for key, value in attributes.items():
     #     logging.info(f"Running {key} attribute for LP logic")
     #     suppliers = []
@@ -98,9 +99,12 @@ def get_overall_score(supplier_data, filters, attributes):
     #         suppliers.append(i["id"])
     #         all_constants[i["id"]] = int(i[key])
     #
-    #     result = get_linear_programming_scores(suppliers, all_constants, value["Objective"], value["tends_to_value"])
-    #     for v, s in result.items():
-    #         overall_scores[int(v.split("_")[1])] += s * attributes[key]["Weightage"]
+    #     p = multiprocessing.Process(target=get_linear_programming_scores, args=(suppliers, all_constants, value["objective"], value["tends_to_value"], attributes, overall_scores, key))  # get_linear_programming_scores(suppliers, all_constants, value["Objective"], value["tends_to_value"], attributes, overall_scores, attribute=key)
+    #     p.start()
+    #     all_lp_process.append(p)
+    #
+    # for p in all_lp_process:
+    #     p.join()
     #
     # lp_end = time.time()
     # logging.info(f"LP Completed in {int(lp_end - lp_start)} seconds")
@@ -111,12 +115,13 @@ def get_overall_score(supplier_data, filters, attributes):
         idx, score = sup
         if score == 0:
             break
-        all_non_zero_scorers.append({supplier_data[idx]["Supplier Name"]: score})
+        supplier_data[idx]["score"] = score
+        all_non_zero_scorers.append({supplier_data[idx]["supplier_name"]: supplier_data[idx]})
 
     if len(all_non_zero_scorers) > 0:
         recommended_supplier = list(all_non_zero_scorers[0].keys())
         recommended_supplier_score = list(all_non_zero_scorers[0].values())
-        message += "Recommending {} with {} score".format(recommended_supplier, recommended_supplier_score)
+        message += "Recommending {} with {} score".format(recommended_supplier, recommended_supplier_score[0]['score'])
     return all_non_zero_scorers, message
 
 # get_overall_score(filters, attributes)

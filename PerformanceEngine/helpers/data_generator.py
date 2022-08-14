@@ -11,9 +11,9 @@ all_suppliers = []  # {service: [] for service in all_services}
 count = 0
 with open('helpers/all_india_services_data.json') as services_json:
     suppliers_data = json.loads(services_json.read())
-    total = len(suppliers_data) * 6 * len(all_countries) * len(all_services)
+    total = len(suppliers_data) * 10 * len(all_countries) * len(all_services)
     for supplier in suppliers_data:
-        for i in range(6):
+        for i in range(10):
             for country in all_countries:
                 for service in all_services:
                     print(f"Generating {count} / {total}")
@@ -23,21 +23,21 @@ with open('helpers/all_india_services_data.json') as services_json:
                     delivery_time = random.randint(25, 400)
                     cost_ratio = random.randint(900, 1250)
                     cost = delivery_time * cost_ratio
-                    rating = random.randint(70, 99)
+                    rating = random.randint(70, 100)
                     escalations = random.randint(3, 500)
                     year = random.randint(2002, 2021)
                     resources = random.randint(300, 9000)
                     all_suppliers.append({
-                        "Supplier Name": current_supplier,
-                        "Country": country,
-                        "Service": service,
-                        "Avg. Cost($)": cost,
-                        "Rating": rating,
-                        "Average Delivery Time": delivery_time,
-                        "Number of Escalations": escalations,
-                        "Year": year,
-                        "Resources": resources,
-                        "Rank": rank
+                        "supplier_name": current_supplier,
+                        "country": country,
+                        "service": service,
+                        "avg_cost": cost,
+                        "rating": rating,
+                        "avg_delivery_time": delivery_time,
+                        "num_of_escalations": escalations,
+                        "year": year,
+                        "resources": resources,
+                        "rank": rank
                     })
 
 print(len(all_suppliers))
