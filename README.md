@@ -11,6 +11,7 @@ Project is created with:
 * Operational research
 
 ## Installation Procedure
+Download Submitted zip file or clone the repo
 ```
 $ cd PerformanceEngine
 $ pip3 install -r requirements.txt
