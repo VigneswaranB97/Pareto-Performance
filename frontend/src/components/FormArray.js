@@ -28,7 +28,7 @@ const buttonStyle = {
 
 const FormArray = () => {
   let [numOfForms, setNumOfForms] = useState(1);
-  const [companyData, setCompanyData] = useState(null);
+  const [attributesSet, setattributeData] = useState(new Set());
   const [alert, setAlert] = useState(null);
 
   const addForm = () => {
@@ -36,30 +36,31 @@ const FormArray = () => {
     setNumOfForms(forms);
   };
 
-  const attributesSet = new Set();
-
   const processJson = (val) => {
     console.log(val);
     try {
       JSON.parse(val);
       setAlert({ msg: "JSON imported successfully!!", type: "success" });
-      setCompanyData(val);
     } catch (e) {
       console.log("invalid", e);
       setAlert({ msg: "Please import valid JSON", type: "danger" });
     }
 
-    console.log("company data", companyData);
-    console.log(val);
-    const suppliers = val["suppliers"];
-    console.log("suppliers", suppliers);
-    suppliers.foreach((supplier) => {
+    const data = JSON.parse(val);
+    const suppliers = data["suppliers"];
+    let all_keys = [];
+    suppliers.forEach((supplier) => {
       Object.keys(supplier).forEach((supplierKey) => {
-        if (!attributesSet.has(supplierKey)) {
-          attributesSet.add(supplierKey);
-        }
+        console.log(supplierKey);
+        all_keys.push(supplierKey);
+        // if (!attributesSet.has(supplierKey)) {
+        //   attributesSet.add(supplierKey);
+        // }
       });
     });
+    const distinct_keys = new Set(all_keys);
+    console.log(distinct_keys);
+    setattributeData(distinct_keys);
   };
 
   return (
@@ -92,34 +93,39 @@ const FormArray = () => {
               <ImportJson processJson={processJson} />
             </div>
             <hr />
-            <Typography variant="h5" component="div">
-              Filters
-            </Typography>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              {(() => {
-                const options = [];
+            {attributesSet.size > 0 && (
+              <>
+                <Typography variant="h5" component="div">
+                  Filters
+                </Typography>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  {(() => {
+                    const options = [];
 
-                for (let i = 0; i < numOfForms; i++) {
-                  options.push(
-                    <Fragment key={i + 1}>
-                      <Form attributes={attributesSet} /> <br />
-                    </Fragment>
-                  );
-                }
+                    for (let i = 0; i < numOfForms; i++) {
+                      options.push(
+                        <Fragment key={i + 1}>
+                          <Form attributes={attributesSet} /> <br />
+                        </Fragment>
+                      );
+                    }
 
-                return options;
-              })()}
-            </div>
-            <button onClick={addForm} style={buttonStyle}>
-              Add new Form
-            </button>
+                    return options;
+                  })()}
+                </div>
+                <button onClick={addForm} style={buttonStyle}>
+                  Add new Form
+                </button>
+              </>
+            )}
+
             <hr />
             <Typography variant="h5" component="div">
               Attributes

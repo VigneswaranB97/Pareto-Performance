@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 
 const Form = (props) => {
-  const attributes = props?.attributesSet;
+  const attributes = Array.from(props?.attributes);
   return (
     <form
       action=""
@@ -26,11 +26,9 @@ const Form = (props) => {
             // onChange={handleChange}
           >
             {attributes &&
-              (() => {
-                attributes.foreach((attribute) => {
-                  <MenuItem value={attribute}>{attribute}</MenuItem>;
-                });
-              })()}
+              attributes.map((attribute) => {
+                return <MenuItem value={attribute}>{attribute}</MenuItem>;
+              })}
           </Select>
         </FormControl>
       </div>
